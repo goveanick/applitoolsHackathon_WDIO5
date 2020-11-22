@@ -16,6 +16,9 @@ const {
   ScreenOrientation
 } = require('@applitools/eyes-selenium');
 
+const viewport_width = 1200;
+const viewport_height = 600;
+
 
 describe('The Hello World Page',  function () {
     it('looks visiually perfect', async function () {
@@ -31,16 +34,29 @@ describe('The Hello World Page',  function () {
             configuration.setAppName('Demo app');
             configuration.setTestName('Hopefully this is it - WebdriverIO Visual Grid test!');
         
-            //Add Chrome browser with two different viewports
-            configuration.addBrowser(800, 600, BrowserType.CHROME);
-            configuration.addBrowser(700, 500, BrowserType.CHROME);
+            // //Add Chrome browser with two different viewports
+            // configuration.addBrowser(800, 600, BrowserType.CHROME);
+            // configuration.addBrowser(700, 500, BrowserType.CHROME);
         
-            //Add Firefox browser with two different viewports
-            configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
-            configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
+            // //Add Firefox browser with two different viewports
+            // configuration.addBrowser(1200, 800, BrowserType.FIREFOX);
+            // configuration.addBrowser(1600, 1200, BrowserType.FIREFOX);
+
+
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.CHROME)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.CHROME_ONE_VERSION_BACK)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.CHROME_TWO_VERSIONS_BACK)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.FIREFOX)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.SAFARI)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.IE_10)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.IE_11)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.EDGE_CHROMIUM)
+            configuration.addBrowser(viewport_width, viewport_height, BrowserType.EDGE_LEGACY)
+            // configuration.addBrowser({iosDeviceInfo: {deviceIosDeviceName.iPhone_X, screenOrientation:ScreenOrientation.LANDSCAPE}})
+            // configuration.addBrowser({chromeEmulationInfo:{ deviceName : DeviceName.Galaxy_S5, screenOrientation:ScreenOrientation.PORTRAIT}})
         
-            //Add iPhone 4 with Portrait mode
-            configuration.addDeviceEmulation(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
+            // //Add iPhone 4 with Portrait mode
+            // configuration.addDeviceEmulation(DeviceName.iPhone_4, ScreenOrientation.PORTRAIT);
         
             // Set your private API key here or in the "APPLITOOLS_API_KEY" environment variable
             configuration.setApiKey("wR99MqHjUrJ45kFAkfSpsgpyMugYthC97iCcAanWEAuSg110");
