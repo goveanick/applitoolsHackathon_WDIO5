@@ -116,14 +116,6 @@ exports.config = {
     //     ,'applitools'
     // ],
     services: [
-        // ['selenium-standalone', {
-        //     logPath: './temp',
-        //     args: {
-        //         version: "3.141.59",
-        //         seleniumArgs: ['-host', '127.0.0.1','-port', '4444']
-        //     },
-        // }],
-        // ['chromedriver']
         ['selenium-standalone', {
             logPath: 'logs',
             installArgs: { drivers },
