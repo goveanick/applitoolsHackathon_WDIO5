@@ -59,7 +59,7 @@ describe('Part 1', () => {
         browser.call(() =>  eyes.setConfiguration(configuration));
 
         driver = browser.call(() => eyes.open(browser));
-        browser.call(() =>  eyes.check("main page", Target.window()));
+        browser.call(() =>  eyes.check("main page", Target.window().fully()));
 
     
         console.log(
@@ -85,6 +85,30 @@ describe('Part 1', () => {
 
     
         browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
+    
+        console.log(
+            `Please wait, we are now..
+            1. Uploading the app's resources (html, css, images)
+            2. Rendering them in different browsers, emulators
+            3. Analyzing them using our A.I. 
+    
+            ...you should see the result within 15 - 60 seconds depending on your internet speed, # combinations and how heavy your app is.
+        `
+        );
+        browser.call(() =>  eyes.closeAsync());
+    })
+
+    it('Product Details', () => {
+        configuration.setTestName('Test 3');
+        browser.call(() =>  eyes.setConfiguration(configuration));
+    
+        driver = browser.call(() => eyes.open(browser));
+
+        $('img[alt="Appli Air x Night"]').click();
+        $('h1[id="shoe_name"]').waitForDisplayed({ timeout:30000, timeoutMsg: 'Shoe heading was not displayed'});
+    
+        // browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
+        browser.call(() =>  eyes.check("product details", Target.window().fully()));
     
         console.log(
             `Please wait, we are now..
