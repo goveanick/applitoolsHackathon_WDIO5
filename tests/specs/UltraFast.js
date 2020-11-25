@@ -55,65 +55,51 @@ describe('Part 1', () => {
     })
 
     it('Main Page', () => {
-        try {
-            configuration.setTestName('Test 1');
-            browser.call(() =>  eyes.setConfiguration(configuration));
+        configuration.setTestName('Test 1');
+        browser.call(() =>  eyes.setConfiguration(configuration));
 
-            driver = browser.call(() => eyes.open(browser));
-            browser.call(() =>  eyes.check("main page", Target.window()));
+        driver = browser.call(() => eyes.open(browser));
+        browser.call(() =>  eyes.check("main page", Target.window()));
 
-        
-            console.log(
-              `Please wait, we are now..
-              1. Uploading the app's resources (html, css, images)
-              2. Rendering them in different browsers, emulators
-              3. Analyzing them using our A.I. 
-        
-              ...you should see the result within 15 - 60 seconds depending on your internet speed, # combinations and how heavy your app is.
-            `
-            );
-        
-          } finally {
-            // Close the browser.
-            // If the test was aborted before eyes.close was called ends the test as aborted.
-            // await eyes.abortIfNotClosed();
-            // browser.call(() =>  eyes.abortIfNotClosed());
-          }
+    
+        console.log(
+            `Please wait, we are now..
+            1. Uploading the app's resources (html, css, images)
+            2. Rendering them in different browsers, emulators
+            3. Analyzing them using our A.I. 
+    
+            ...you should see the result within 15 - 60 seconds depending on your internet speed, # combinations and how heavy your app is.
+        `
+        );
+        browser.call(() =>  eyes.closeAsync());
     });
 
     it('Filtered Product Grid', () => {
-        try {
-            configuration.setTestName('Test 2');
-            browser.call(() =>  eyes.setConfiguration(configuration));
-        
-            driver = browser.call(() => eyes.open(browser));
+        configuration.setTestName('Test 2');
+        browser.call(() =>  eyes.setConfiguration(configuration));
+    
+        driver = browser.call(() => eyes.open(browser));
 
-            $('input[id*="Black"]').click();
-            $('button[id="filterBtn"]').click();
+        $('input[id*="Black"]').click();
+        $('button[id="filterBtn"]').click();
 
-        
-            browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
-        
-            console.log(
-              `Please wait, we are now..
-              1. Uploading the app's resources (html, css, images)
-              2. Rendering them in different browsers, emulators
-              3. Analyzing them using our A.I. 
-        
-              ...you should see the result within 15 - 60 seconds depending on your internet speed, # combinations and how heavy your app is.
-            `
-            );
-        
-          } finally {
-            // Close the browser.
-            // If the test was aborted before eyes.close was called ends the test as aborted.
-            // await eyes.abortIfNotClosed();
-            // browser.call(() =>  eyes.abortIfNotClosed());
-          }
+    
+        browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
+    
+        console.log(
+            `Please wait, we are now..
+            1. Uploading the app's resources (html, css, images)
+            2. Rendering them in different browsers, emulators
+            3. Analyzing them using our A.I. 
+    
+            ...you should see the result within 15 - 60 seconds depending on your internet speed, # combinations and how heavy your app is.
+        `
+        );
+        browser.call(() =>  eyes.closeAsync());
     })
 
     afterAll(() => {
-        browser.call(() =>  eyes.closeAsync());
+        // browser.call(() =>  eyes.closeAsync());
         // const results = await eyes.close(); // will return only first TestResults, but as we have two browsers, we need more results
         const results = browser.call(() =>  eyes.getRunner().getAllTestResults());
         console.log(results);
