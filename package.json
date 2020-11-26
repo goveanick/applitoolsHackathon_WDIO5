@@ -1,16 +1,19 @@
 {
   "name": "applitoolshackathon_wdio5",
   "version": "1.0.0",
-  "description": "",
+  "description": "Applitools Holiday Shopping Hackathon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-part1": "npx wdio wdio.conf.js --spec part1-hackathon.js",
+    "test-part2": "npx wdio wdio.conf.js --spec part2-hackathon.js",
+    "test-part3": "npx wdio wdio.conf.js --spec part3-hackathon.js",
+    "test-all-parts": "npx wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/goveanick/applitoolsHackathon_WDIO5.git"
   },
-  "author": "",
+  "author": "Nicolas Govea",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goveanick/applitoolsHackathon_WDIO5/issues"
@@ -27,6 +30,7 @@
     "@wdio/spec-reporter": "^6.8.1",
     "@wdio/sync": "^5.23.0",
     "chromedriver": "^87.0.0",
+    "dotenv": "^8.2.0",
     "selenium-webdriver": "^4.0.0-alpha.7",
     "webdriver": "^5.23.0"
   }

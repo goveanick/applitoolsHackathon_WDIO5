@@ -12,6 +12,8 @@ const {
   BrowserType,
   Configuration,
 } = require('@applitools/eyes-selenium');
+require('dotenv').config();
+
 
 const local_viewport_width = 1200;
 const local_viewport_height = 600;
@@ -23,7 +25,7 @@ const configuration = new Configuration();
 configuration.setBatch('Holiday Shopping');
 configuration.setAppName('AppliFashion');
 configuration.addBrowser(1200, 800, BrowserType.CHROME);
-configuration.setApiKey("");
+configuration.setApiKey(process.env.APPLITOOLS_KEY);
 configuration.setViewportSize( new RectangleSize(local_viewport_width, local_viewport_height));
 
 describe('Part 2', () => {

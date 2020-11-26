@@ -12,6 +12,8 @@ const {
   BrowserType,
   Configuration,
 } = require('@applitools/eyes-selenium');
+require('dotenv').config();
+
 
 const local_viewport_width = 1200;
 const local_viewport_height = 600;
@@ -27,7 +29,7 @@ configuration.setAppName('AppliFashion');
 
 // //Add Chrome browser with two different viewports
 configuration.addBrowser(1200, 800, BrowserType.CHROME);
-configuration.setApiKey("");
+configuration.setApiKey(process.env.APPLITOOLS_KEY);
 configuration.setViewportSize( new RectangleSize(local_viewport_width, local_viewport_height));
 
 

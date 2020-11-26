@@ -14,6 +14,8 @@ const {
   ScreenOrientation,
   IosDeviceName
 } = require('@applitools/eyes-selenium');
+require('dotenv').config();
+
 
 const local_viewport_width = 1200;
 const local_viewport_height = 600;
@@ -32,7 +34,7 @@ configuration.addBrowser(1200, 800, BrowserType.SAFARI)
 configuration.addBrowser(1200, 800, BrowserType.EDGE_CHROMIUM)
 configuration.addBrowser({iosDeviceInfo: {deviceName:IosDeviceName.iPhone_X, screenOrientation:ScreenOrientation.LANDSCAPE}})
 
-configuration.setApiKey("");
+configuration.setApiKey(process.env.APPLITOOLS_KEY);
 configuration.setViewportSize( new RectangleSize(local_viewport_width, local_viewport_height));
 
 describe('Part 3', () => {
