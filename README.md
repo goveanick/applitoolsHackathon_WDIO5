@@ -32,7 +32,7 @@ In order to get this repo up and running you'll have to follow the steps outline
     ```
     touch .env
     ```
-7. You'll need to add your `APPLITOOLS_KEY` to the .env so the spec files will be able to connect to the applitools api. Add this line inside your `.env` file
+7. You'll need to add your `APPLITOOLS_KEY` to the .env so the spec files will be able to connect to the applitools api. Add this line inside your `.env` file. Replace this `[YOUR_PERSONAL_KEY]` with your own unique key.
     ```
     APPLITOOLS_KEY=[YOUR_PERSONAL_KEY]
     ```
