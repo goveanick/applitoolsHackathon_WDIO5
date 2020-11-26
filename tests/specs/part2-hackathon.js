@@ -60,8 +60,11 @@ describe('Part 2', () => {
     
         driver = browser.call(() => eyes.open(browser));
 
-        $('input[id*="Black"]').click();
-        $('button[id="filterBtn"]').click();
+        const blackFilterOption =  $('input[id*="Black"]');
+        const filterButton = $('button[id="filterBtn"]');
+
+        blackFilterOption.click();
+        filterButton.click();
 
     
         browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
@@ -84,8 +87,11 @@ describe('Part 2', () => {
     
         driver = browser.call(() => eyes.open(browser));
 
-        $('img[alt="Appli Air x Night"]').click();
-        $('h1[id="shoe_name"]').waitForDisplayed({ timeout:30000, timeoutMsg: 'Shoe heading was not displayed'});
+        const shoeProductElement =  $('img[alt="Appli Air x Night"]');
+        const shoeProductPageHeader =  $('h1[id="shoe_name"]')
+
+        shoeProductElement.click();
+        shoeProductPageHeader.waitForDisplayed({ timeout:30000, timeoutMsg: 'Shoe heading was not displayed'});
     
         browser.call(() =>  eyes.check("product details", Target.window().fully()));
     

@@ -21,18 +21,14 @@ const local_viewport_height = 600;
 const eyes = new Eyes(new VisualGridRunner(3));
 eyes.setLogHandler(new FileLogHandler(true));
 
-
-
 const configuration = new Configuration();
 configuration.setBatch('Holiday Shopping');
 configuration.setAppName('AppliFashion');
 
-// //Add Chrome browser with two different viewports
+// Add Chrome browser with two different viewports
 configuration.addBrowser(1200, 800, BrowserType.CHROME);
 configuration.setApiKey(process.env.APPLITOOLS_KEY);
 configuration.setViewportSize( new RectangleSize(local_viewport_width, local_viewport_height));
-
-
 
 describe('Part 1', () => {
 
@@ -65,8 +61,11 @@ describe('Part 1', () => {
     
         driver = browser.call(() => eyes.open(browser));
 
-        $('input[id*="Black"]').click();
-        $('button[id="filterBtn"]').click();
+        const blackFilterOption =  $('input[id*="Black"]');
+        const filterButton = $('button[id="filterBtn"]');
+
+        blackFilterOption.click();
+        filterButton.click();
 
     
         browser.call(() => eyes.check("filter by color", Target.region(By.id("product_grid"))));
@@ -89,8 +88,11 @@ describe('Part 1', () => {
     
         driver = browser.call(() => eyes.open(browser));
 
-        $('img[alt="Appli Air x Night"]').click();
-        $('h1[id="shoe_name"]').waitForDisplayed({ timeout:30000, timeoutMsg: 'Shoe heading was not displayed'});
+        const shoeProductElement =  $('img[alt="Appli Air x Night"]');
+        const shoeProductPageHeader =  $('h1[id="shoe_name"]')
+
+        shoeProductElement.click();
+        shoeProductPageHeader.waitForDisplayed({ timeout:30000, timeoutMsg: 'Shoe heading was not displayed'});
     
         browser.call(() =>  eyes.check("product details", Target.window().fully()));
     
