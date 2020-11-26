@@ -27,7 +27,9 @@ exports.config = {
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        // './tests/specs/part1-hackathon.js',
+        // './tests/specs/part2-hackathon.js',
+        // './tests/specs/part3-hackathon.js'
     ],
     //
     // ============
@@ -151,11 +153,7 @@ exports.config = {
         expectationResultHandler: function(passed, assertion) {
             // do something
         }
-    },
-
-    // path: '/wd/hub'
-    
-    
+    },    
     //
     // =====
     // Hooks

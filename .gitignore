@@ -2,3 +2,4 @@ node_modules
 logs
 eyes.log
 temp
+.env
