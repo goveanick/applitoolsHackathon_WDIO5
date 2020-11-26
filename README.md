@@ -1,6 +1,6 @@
 # Applitools Holiday Shopping Hackathon - Javascript
 
-## Using WebdriverIO and Jasmine
+## Using WebdriverIO version 5 and Jasmine
 
 In order to get this repo up and running you'll have to follow the steps outlined below
 
