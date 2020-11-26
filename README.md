@@ -41,7 +41,7 @@ In order to get this repo up and running you'll have to follow the steps outline
     Go to this url to download the .jar file
     https://www.selenium.dev/downloads/
     ```
-9. Once the `.jar` is finished downloading, open a NEW terminal window and navigate to your Downloads folder or wherever your downloaded files are saved
+9. Once the `.jar` is finished downloading, open a NEW terminal window and navigate to your Downloads folder or wherever your downloaded files are saved, then run the java command below.
     ```
     cd ~
     cd Downloads
